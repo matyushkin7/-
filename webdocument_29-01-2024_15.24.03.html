@@ -1,0 +1,47 @@
+<html><head>
+  <title>Форма ввода</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+<style>.greet {	color:#ffffff;	position:absolute;	top:50%;	left:50%;	transform:translate(-50%,-50%);	background:tomato;	border:1px solid;	padding:40px;}</style></head>
+<body>
+  <form>
+    <label for="login">Логин:</label>
+    <input type="text" id="login" name="login" required="">
+    <br><br>
+    <label for="sum">Сумма:</label>
+    <input type="number" id="sum" name="sum" pattern="[0-9]*" required="">
+  </form>
+  
+  <br><br>
+  
+  <button onclick="showConfirmation()">Пополнить</button>
+  <div id="confirmationMessage" class="hidden">
+    <p>Вы правильно ввели логин?</p>
+    <button onclick="confirmAndRedirect()">Да</button>
+    <button onclick="cancelAndGoBack()">Нет</button>
+  </div>
+
+  <script>
+    function showConfirmation() {
+      var login = document.getElementById("login").value;
+      var confirmationMessage = document.getElementById("confirmationMessage");
+      
+      if (login !== "") {
+        confirmationMessage.classList.remove("hidden");
+      }
+    }
+    
+    function confirmAndRedirect() {
+      window.location.href = "https://www.donationalerts.com/r/temper7502";
+    }
+    
+    function cancelAndGoBack() {
+      var confirmationMessage = document.getElementById("confirmationMessage");
+      confirmationMessage.classList.add("hidden");
+    }
+  </script>
+
+<script>document.querySelector(".greet").innerHTML+=" World..!";</script></body></html>
